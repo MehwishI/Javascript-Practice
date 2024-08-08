@@ -13,21 +13,46 @@ const drivers = {
 //{BMW M3 : [Daniel Ricciardo, Sebastian Vettel, Kimi Raikkonen]}
 
 
-const getdriver= function (drivers) {
- const carsDrivers= {};
+const getdriver = function (drivers) {
+  const carsDrivers = {};
+  // console.log(drivers)
  
- for (const driver in drivers) {
- // if(Object.keys.includes(carsDrivers) === )
-  foreach (let car of drivers[driver].cars) {
-   if(!carsDrivers[car].includes(drivers[driver].name)) {
+  for (let driver in drivers) {
+  //  console.log("driver:",driver)
+    // if(Object.keys.includes(carsDrivers) === )
+    //  drivers[driver].cars.forEach((car) => {
+    //    if (carsDrivers[car] === null) {
+    //      carsDrivers[car].push(drivers[driver].name);
+    //    }
+       
+    //    elseif (!carsDrivers[car].includes(drivers[driver].name)) {
+    //      carsDrivers[car].push(drivers[driver].name);
+    //    }
+    //  console.log("driver:" , driver);
    
-   carsDrivers[car].push(drivers[driver].name);
-   }
-  
-  }
+   
+    for (var car of drivers[driver].cars) {
+      // console.log("cars:", drivers[driver].cars);
+      //console.log("carDrivers:" , carsDrivers[car] );
+      //  console.log("carsDrivers:", carsDrivers);
+      if (Object.keys(carsDrivers).length === 0 || !carsDrivers[car]) {
+        carsDrivers[car] = [];
+        carsDrivers[car].push(drivers[driver].name);
+      //  console.log("carsDrivers:", carsDrivers);
+      }
+      else if (carsDrivers[car]) {
+       // console.log("carsDrivers[car]:", carsDrivers[car]);     
+        if (!carsDrivers[car].includes(drivers[driver].name)) {
+          carsDrivers[car].push(drivers[driver].name);
+         // console.log("carsDrivers[car]:", carsDrivers[car])
+        }
+   
+      }
+     
  
+    }
+   
   }
-  return carsDrivers;
- 
+   return carsDrivers;
 }
-console.log(getdriver(drivers));
+console.log("Cars with their drivers:",getdriver(drivers));
