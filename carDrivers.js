@@ -15,41 +15,21 @@ const drivers = {
 
 const getdriver = function (drivers) {
   const carsDrivers = {};
-  // console.log(drivers)
- 
+  
   for (let driver in drivers) {
-  //  console.log("driver:",driver)
-    // if(Object.keys.includes(carsDrivers) === )
-    //  drivers[driver].cars.forEach((car) => {
-    //    if (carsDrivers[car] === null) {
-    //      carsDrivers[car].push(drivers[driver].name);
-    //    }
-       
-    //    elseif (!carsDrivers[car].includes(drivers[driver].name)) {
-    //      carsDrivers[car].push(drivers[driver].name);
-    //    }
-    //  console.log("driver:" , driver);
-   
-   
-    for (var car of drivers[driver].cars) {
-      // console.log("cars:", drivers[driver].cars);
-      //console.log("carDrivers:" , carsDrivers[car] );
-      //  console.log("carsDrivers:", carsDrivers);
+      for (var car of drivers[driver].cars) {
+     
       if (Object.keys(carsDrivers).length === 0 || !carsDrivers[car]) {
         carsDrivers[car] = [];
-        carsDrivers[car].push(drivers[driver].name);
-      //  console.log("carsDrivers:", carsDrivers);
+        carsDrivers[car].push(drivers[driver].name);      
       }
-      else if (carsDrivers[car]) {
-       // console.log("carsDrivers[car]:", carsDrivers[car]);     
+      else if (carsDrivers[car]) {      
         if (!carsDrivers[car].includes(drivers[driver].name)) {
-          carsDrivers[car].push(drivers[driver].name);
-         // console.log("carsDrivers[car]:", carsDrivers[car])
+          carsDrivers[car].push(drivers[driver].name);         
         }
    
       }
-     
- 
+      
     }
    
   }
